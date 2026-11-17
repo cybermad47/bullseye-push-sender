@@ -1,8 +1,5 @@
 name: BULLSEYE push sender
 
-# Five offset 5-minute schedules give ~1-minute polling. Each individual
-# schedule is 5 minutes apart (GitHub's minimum), and public repos get
-# unlimited free Actions minutes. GitHub may delay runs under load.
 on:
   schedule:
     - cron: '0-59/5 * * * *'
@@ -21,7 +18,9 @@ jobs:
         with:
           node-version: '20'
       - run: npm install --omit=dev
+        working-directory: .github/workflows
       - run: node scripts/send.js
+        working-directory: .github/workflows
         env:
           FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
           FIREBASE_DATABASE_URL: https://work-schedule-32208-default-rtdb.europe-west1.firebasedatabase.app
