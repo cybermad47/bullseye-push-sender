@@ -1,0 +1,11 @@
+{
+  "name": "bullseye-push-sender",
+  "version": "1.0.0",
+  "private": true,
+  "main": "scripts/send.js",
+  "engines": { "node": "20" },
+  "dependencies": {
+    "firebase-admin": "^12.7.0",
+    "web-push": "^3.6.7"
+  }
+}
