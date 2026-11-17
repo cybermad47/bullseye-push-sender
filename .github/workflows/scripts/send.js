@@ -82,7 +82,7 @@ async function run(deps = {}) {
 if (require.main === module) {
     run().then(out => {
         console.log('[BULLSEYE push] scan complete:', JSON.stringify(out));
-        process.exit(0); // Firebase RTDB keeps sockets open; exit explicitly
+        process.exit(0);
     }).catch(err => {
         console.error('[BULLSEYE push] FAILED', err);
         process.exit(1);
